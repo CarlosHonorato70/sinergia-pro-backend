@@ -9,5 +9,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String)
     name = Column(String)
-    role = Column(String, default="patient")
+    role = Column(String, default="patient")  # "admin", "therapist", "patient"
+    specialization = Column(String, nullable=True)  # Para profissionais
+    crm_or_crp = Column(String, nullable=True)  # Para profissionais
     created_at = Column(DateTime, default=datetime.utcnow)
