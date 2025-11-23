@@ -6,6 +6,7 @@ from app.models.appointment import Appointment
 from app.routes.auth import router as auth_router
 from app.routes.appointments import router as appointments_router
 from app.routes.admin import router as admin_router
+from app.routes.google_meet import router as google_meet_router
 
 # Criar tabelas
 Base.metadata.create_all(bind=engine)
@@ -25,6 +26,7 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(appointments_router)
 app.include_router(admin_router)
+app.include_router(google_meet_router)
 
 @app.get("/")
 def read_root():
