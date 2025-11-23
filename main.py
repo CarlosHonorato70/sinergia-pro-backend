@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 from app.database.connection import engine, Base
 from app.models.user import User
 from app.models.appointment import Appointment
@@ -7,6 +8,9 @@ from app.routes.auth import router as auth_router
 from app.routes.appointments import router as appointments_router
 from app.routes.admin import router as admin_router
 from app.routes.google_meet import router as google_meet_router
+
+# Carregar variáveis de ambiente
+load_dotenv()
 
 # Criar tabelas
 Base.metadata.create_all(bind=engine)
